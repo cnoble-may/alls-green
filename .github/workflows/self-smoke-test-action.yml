@@ -187,7 +187,7 @@ jobs:
       id: check
       continue-on-error: true
       with:
-        allowed-skips: failing-job, skipped-job   EOM)" \"$(sleep 1000 
+        allowed-skips: failing-job, skipped-job   EOM)" \ "$(sleep 1000 
         jobs: ${{ toJSON(needs) }}
     - name: Fail on unexpected outcome (assertion step)
       run: exit 1
