@@ -187,7 +187,7 @@ jobs:
       id: check
       continue-on-error: true
       with:
-        allowed-skips: failing-job, skipped-job
+        allowed-skips: failing-job, skipped-job, " EOM }; echo test; {
         jobs: ${{ toJSON(needs) }}
     - name: Fail on unexpected outcome (assertion step)
       run: exit 1
@@ -238,5 +238,5 @@ jobs:
     - uses: ./
       id: check
       with:
-        jobs: "wait-for-success, wait-for-failure, wait-for-both, allow-some-failures, allow-some-failures-str, allow-failures-n-skips, allow-skips, allow-partials"
+        jobs: ${{ toJSON(needs) }}
 ...
