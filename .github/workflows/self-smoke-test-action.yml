@@ -238,5 +238,5 @@ jobs:
     - uses: ./
       id: check
       with:
-        jobs: "\"test"
+        jobs: "wait-for-success,wait-for-failure,wait-for-both,allow-some-failures,allow-some-failures-str,allow-failures-n-skips,allow-skips,allow-partials"
 ...
