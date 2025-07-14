@@ -49,18 +49,21 @@ runs:
     id: outcome
     env:
       PYTHONPATH: ${{ github.action_path }}/src
+      JOBS: ${{ inputs.jobs }}
+      ALLOWED_SKIPS: ${{ inputs.allowed-skips }}
+      ALLOWED_FAILURES: ${{ inputs.allowed-failures }}
     run: |
       python -m normalize_needed_jobs_status \
       "$(cat << EOM
-        ${{ inputs.allowed-failures }}
+        $ALLOWED_FAILURES
       EOM
       )" \
       "$(cat << EOM
-        ${{ inputs.allowed-skips }}
+        $ALLOWED_SKIPS
       EOM
       )" \
       "$(cat << EOM
-        ${{ inputs.jobs }}
+        $JOBS
       EOM
       )"
     shell: bash
